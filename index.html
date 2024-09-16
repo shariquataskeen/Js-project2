@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            background-repeat: no-repeat;
+        }
+
+        .bubble-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+           
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            z-index: -1;
+            width: 30px;
+            height: 30px;
+            background: rgb(255 255 255 / 0%);
+            border-radius: 50%;
+            animation: rise 10s infinite ease-in-out;
+            opacity: 0.8;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+        .bubble:nth-child(1) {
+            left: 5%;
+            animation-duration: 7s;
+        }
+
+        .bubble:nth-child(2) {
+            left: 10%;
+            animation-duration: 10s;
+        }
+
+        .bubble:nth-child(3) {
+            left: 15%;
+            animation-duration: 9s;
+        }
+
+        .bubble:nth-child(4) {
+            left: 20%;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(5) {
+            left: 25%;
+            animation-duration: 7s;
+        }
+
+        .bubble:nth-child(6) {
+            left: 30%;
+            animation-duration: 10s;
+        }
+
+        .bubble:nth-child(7) {
+            left: 35%;
+            animation-duration: 12s;
+        }
+
+        .bubble:nth-child(8) {
+            left: 40%;
+            animation-duration: 11s;
+        }
+
+        .bubble:nth-child(9) {
+            left: 45%;
+            animation-duration: 9s;
+        }
+
+        .bubble:nth-child(10) {
+            left: 50%;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(11) {
+            left: 55%;
+            animation-duration: 7s;
+        }
+
+        .bubble:nth-child(12) {
+            left: 60%;
+            animation-duration: 10s;
+        }
+
+        .bubble:nth-child(13) {
+            left: 65%;
+            animation-duration: 12s;
+        }
+
+        .bubble:nth-child(14) {
+            left: 70%;
+            animation-duration: 11s;
+        }
+
+        .bubble:nth-child(15) {
+            left: 75%;
+            animation-duration: 9s;
+        }
+
+        .bubble:nth-child(16) {
+            left: 80%;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(17) {
+            left: 85%;
+            animation-duration: 7s;
+        }
+
+        .bubble:nth-child(18) {
+            left: 90%;
+            animation-duration: 10s;
+        }
+
+        .bubble:nth-child(19) {
+            left: 95%;
+            animation-duration: 11s;
+        }
+
+        .bubble:nth-child(20) {
+            left: 98%;
+            animation-duration: 9s;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: translateY(-50vh);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            font-size: 35px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            width: 300px;
+            height: 350px;
+            text-align: center;
+
+        }
+
+        .product-card h4 {
+            margin: 10px 0;
+            font-weight: bold;
+            color: white;
+        }
+
+        .product-card p {
+            color: #000;
+            font-weight: bold;
+            color: white;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bubble-container">
+        <!-- 20 bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    
+    <div class="header">
+        <h1>Beautify & co.</h1>
+    </div>
+
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search for products...">
+        </div>
+
+        <div class="product-grid" id="productGrid">
+        </div>
+    </div>
+</div>
+
+    <script>
+        const products = [
+            { name: 'Face Cream', price: '$50.00', image: 'https://static.wixstatic.com/media/94e66f_bbf982622b7b4bb99cff0a35d0718ade~mv2_d_2888_2890_s_4_2.png/v1/fill/w_445,h_445,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_bbf982622b7b4bb99cff0a35d0718ade~mv2_d_2888_2890_s_4_2.png' },
+            { name: 'Eye shadow', price: '$50.00', image: 'https://static.wixstatic.com/media/94e66f_c58fe97a330f4ae69c979f9e3c92a841~mv2_d_1200_1320_s_2.png/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_c58fe97a330f4ae69c979f9e3c92a841~mv2_d_1200_1320_s_2.png' },
+            { name: 'Matte Lipstick', price: '$27.00', image: 'https://static.wixstatic.com/media/94e66f_1da093c1d99341bd8bbd9d690e65b826~mv2_d_1200_1320_s_2.png/v1/fill/w_445,h_445,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_1da093c1d99341bd8bbd9d690e65b826~mv2_d_1200_1320_s_2.png' },
+            { name: 'Makeup Brush', price: '$10.00', image: 'https://static.wixstatic.com/media/94e66f_e5e27ca978ba42d6aeb4a26c1844945d~mv2_d_2000_2200_s_2.png/v1/fill/w_445,h_445,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_e5e27ca978ba42d6aeb4a26c1844945d~mv2_d_2000_2200_s_2.png' },
+            { name: 'Matte Lipstick', price: '$27.00', image: 'https://static.wixstatic.com/media/94e66f_31ea185b75634e168bebc4d31a72f3e6~mv2_d_5165_5165_s_4_2.png/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_31ea185b75634e168bebc4d31a72f3e6~mv2_d_5165_5165_s_4_2.png' },
+            { name: 'Face Cream', price: '$50.00', image: 'https://static.wixstatic.com/media/94e66f_771b657ad12a4a68ae390e883642880c~mv2_d_4000_4000_s_4_2.png/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_771b657ad12a4a68ae390e883642880c~mv2_d_4000_4000_s_4_2.png' },
+            { name: 'Eye shadow', price: '$50.00', image: 'https://static.wixstatic.com/media/94e66f_59cd56bca3e845bd9ac51eb7c6280030~mv2_d_1200_1320_s_2.png/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_59cd56bca3e845bd9ac51eb7c6280030~mv2_d_1200_1320_s_2.png' },
+            { name: 'Matte Lipstick', price: '$30.00', image: 'https://static.wixstatic.com/media/94e66f_bdd628ad92214a9898e3b43764bf1d48~mv2_d_1200_1320_s_2.png/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_bdd628ad92214a9898e3b43764bf1d48~mv2_d_1200_1320_s_2.png' },
+            { name: 'Makeup Brush', price: '$10.00', image: 'https://static.wixstatic.com/media/94e66f_828d9a3f11644d8e8591649cc67be117~mv2_d_2000_2200_s_2.png/v1/fill/w_445,h_445,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_828d9a3f11644d8e8591649cc67be117~mv2_d_2000_2200_s_2.png' },
+            { name: 'Face Cream', price: '$50.00', image: 'https://static.wixstatic.com/media/94e66f_70227915969543f6bd1e1f5257165e36~mv2_d_2888_2890_s_4_2.png/v1/fill/w_445,h_445,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_70227915969543f6bd1e1f5257165e36~mv2_d_2888_2890_s_4_2.png' },
+            { name: 'Makeup Brush', price: '$10.00', image: 'https://static.wixstatic.com/media/94e66f_6673add002634681a7542ce63305df02~mv2_d_2000_2200_s_2.png/v1/fill/w_445,h_445,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/94e66f_6673add002634681a7542ce63305df02~mv2_d_2000_2200_s_2.png' },
+            { name: 'Eye shadow', price: '$50.00', image: 'https://static.wixstatic.com/media/94e66f_e089abd0714e4aa9bfd1284c037b0302~mv2_d_1200_1320_s_2.jpg/v1/fill/w_287,h_287,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/94e66f_e089abd0714e4aa9bfd1284c037b0302~mv2_d_1200_1320_s_2.jpg' }
+        ];
+
+
+        function displayProducts(productsArray) {
+
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = '';
+            productsArray.forEach(product => {
+                const productCard = `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h4>${product.name}</h4>
+                        <p>${product.price}</p>
+                    </div>
+                `;
+                productGrid.innerHTML += productCard;
+            });
+        }
+
+        // Function to filter products
+        function filterProducts() {
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const filteredProducts = products.filter(product =>
+                product.name.toLowerCase().includes(searchValue)
+            );
+            displayProducts(filteredProducts);
+        }
+
+        // Initially display all products
+        displayProducts(products);
+    </script>
+
+</body>
+
+</html>
